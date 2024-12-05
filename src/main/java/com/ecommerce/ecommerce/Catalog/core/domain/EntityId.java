@@ -1,8 +1,16 @@
 package com.ecommerce.ecommerce.Catalog.core.domain;
 
+
+/**
+ * value Object for Id`s
+ * @param <T>
+ */
 public abstract class EntityId<T> {
     private final T value;
     public EntityId(T value) {
+        if(value == null) {
+            throw new IllegalArgumentException("id cannot be empty");
+        }
         this.value = value;
     }
     @Override
