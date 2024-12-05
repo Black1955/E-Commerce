@@ -1,8 +1,7 @@
 package com.ecommerce.ecommerce.Catalog.core.usecases;
 
-import com.ecommerce.ecommerce.Catalog.core.domain.category.Page;
+import com.ecommerce.ecommerce.Shared.Page;
 import com.ecommerce.ecommerce.Catalog.core.domain.product.Product;
-import com.ecommerce.ecommerce.Catalog.core.domain.product.ProductId;
 import com.ecommerce.ecommerce.Catalog.core.repositories.ProductRepository;
 import com.ecommerce.ecommerce.Catalog.core.repositories.exceptions.RepositoryException;
 

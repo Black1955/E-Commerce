@@ -3,7 +3,7 @@ package com.ecommerce.ecommerce.Catalog.core.repositories;
 import java.util.List;
 
 import com.ecommerce.ecommerce.Catalog.core.domain.category.Name;
-import com.ecommerce.ecommerce.Catalog.core.domain.category.Page;
+import com.ecommerce.ecommerce.Shared.Page;
 import com.ecommerce.ecommerce.Catalog.core.domain.product.Product;
 import com.ecommerce.ecommerce.Catalog.core.domain.product.ProductId;
 
