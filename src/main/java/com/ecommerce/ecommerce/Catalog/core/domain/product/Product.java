@@ -21,7 +21,16 @@ public class Product {
         this.price = price;
         this.title = title;
     }
+    public static Product createWithoutId(Price price, List<Category> categories, String title, String description) {
+        return new Product(null, price, categories, title, description);
+    }
 
+    public void setId(ProductId id) {
+        if (this.id != null) {
+            throw new IllegalStateException("ID is already set");
+        }
+        this.id = id;
+    }
     public ProductId getId() {
         return id;
     }
