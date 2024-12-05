@@ -1,11 +1,13 @@
 package com.ecommerce.ecommerce.Catalog.core.domain.category;
 
-import com.ecommerce.ecommerce.Catalog.core.domain.EntityId;
 
+/**
+ * Category Entity
+ */
 public class Category {
-    private EntityId<String> id;
+    private CategoryId id;
     private String name;
-    public Category(EntityId<String> id, String name) {
+    public Category(CategoryId id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -14,7 +16,7 @@ public class Category {
         return name;
     }
 
-    public EntityId<String> getId() {
+    public CategoryId getId() {
         return id;
     }
     public void setName(String name) {
