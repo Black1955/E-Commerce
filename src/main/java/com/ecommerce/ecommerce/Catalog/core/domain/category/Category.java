@@ -11,6 +11,15 @@ public class Category {
         this.id = id;
         this.name = name;
     }
+    public static Category createWithoutId(Name name) {
+        return new Category(null,name);
+    }
+    public void setId(CategoryId id) {
+        if (this.id != null) {
+            throw new IllegalStateException("ID is already set");
+        }
+        this.id = id;
+    }
 
     public Name getName() {
         return name;
