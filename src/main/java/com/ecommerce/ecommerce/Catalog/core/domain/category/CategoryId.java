@@ -1,4 +1,9 @@
 package com.ecommerce.ecommerce.Catalog.core.domain.category;
 
-public class CategoryId {
+import com.ecommerce.ecommerce.Catalog.core.domain.EntityId;
+
+public class CategoryId extends EntityId<String> {
+    public CategoryId(String value) {
+        super(value);
+    }
 }
