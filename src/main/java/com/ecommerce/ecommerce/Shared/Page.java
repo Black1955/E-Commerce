@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerce.Catalog.core.domain.category;
+package com.ecommerce.ecommerce.Shared;
 
 import java.util.List;
 import java.util.ArrayList;
