@@ -22,7 +22,7 @@ public class AddStockForOrderItems {
 
     public void execute(Collection<Stock> items, OrderId orderId) {
         for (Stock item : items) {
-            if (this.stockRepository.checkQuantity(item.getProductId()).getQuantity().getValue() < item.getQuantity().getValue()) {
+            if (!isEnough(item)) {
                 throw new InsufficientStockException(
                         item.getQuantity().getValue(),
                         stockRepository.checkQuantity(item.getProductId()).getQuantity().getValue()
@@ -39,6 +39,9 @@ public class AddStockForOrderItems {
             stockHistoryRepository.add(stockHistory);
             stockRepository.addItems(item);
         }
+    }
+    private boolean isEnough(Stock stock) {
+        return this.stockRepository.checkQuantity(stock.getProductId()).getQuantity().getValue() < stock.getQuantity().getValue();
     }
 }
 
