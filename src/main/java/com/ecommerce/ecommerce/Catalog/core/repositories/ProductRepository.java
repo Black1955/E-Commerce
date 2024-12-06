@@ -55,4 +55,13 @@ public interface ProductRepository {
      * @return A {@link Page} containing randomly selected {@link Product} entities.
      */
     Page<Product> getRandom(int page, int size);
+
+    /**
+     * Retrieves a paginated list of {@link Product} entities by Title.
+     *
+     * @param page The page number to retrieve, where 0 is the first page.
+     * @param size The size of the page (number of products per page).
+     * @return A {@link Page} containing randomly selected {@link Product} entities.
+     */
+    Page<Product> getByTitle(String title, int page, int size);
 }

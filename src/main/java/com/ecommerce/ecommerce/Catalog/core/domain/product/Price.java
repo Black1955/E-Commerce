@@ -6,5 +6,10 @@ public class Price {
         if(value < 0) {
             throw new IllegalArgumentException("price cannot be less then 0");
         }
+        this.value = value;
+    }
+
+    public float getValue() {
+        return value;
     }
 }
