@@ -11,7 +11,7 @@ public class GetProductById {
     public GetProductById(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-    Product execute(ProductId id) {
+    public Product execute(ProductId id) {
         return this.productRepository.getById(id);
     }
 }

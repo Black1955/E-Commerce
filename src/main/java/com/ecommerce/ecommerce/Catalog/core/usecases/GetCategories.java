@@ -10,7 +10,7 @@ public class GetCategories {
     public GetCategories(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-    List<Category> execute() {
+    public List<Category> execute() {
         return this.categoryRepository.getAll();
     }
 }

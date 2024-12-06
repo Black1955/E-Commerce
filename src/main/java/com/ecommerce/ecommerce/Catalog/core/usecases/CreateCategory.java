@@ -11,7 +11,7 @@ public class CreateCategory {
     public CreateCategory(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-    void execute(Category category) {
+    public void execute(Category category) {
         if(category == null) {
             throw new IllegalArgumentException("category cannot be empty");
         }

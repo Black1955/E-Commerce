@@ -5,12 +5,12 @@ import com.ecommerce.ecommerce.Catalog.core.domain.product.Product;
 import com.ecommerce.ecommerce.Catalog.core.repositories.ProductRepository;
 import com.ecommerce.ecommerce.Catalog.core.repositories.exceptions.RepositoryException;
 
-public class getProducts {
+public class GetProducts {
     private final ProductRepository productRepository;
-    public getProducts(ProductRepository productRepository) {
+    public GetProducts(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-    Page<Product> execute(int size, int page) {
+    public Page<Product> execute(int size, int page) {
         if (page < 0) {
             throw new IllegalArgumentException("Page number cannot be negative.");
         }

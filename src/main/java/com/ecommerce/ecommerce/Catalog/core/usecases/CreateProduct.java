@@ -13,7 +13,7 @@ public class CreateProduct {
     public CreateProduct(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-    void execute(Product product) {
+    public void execute(Product product) {
         if(product == null) {
             throw new IllegalArgumentException("product cannot be empty");
         }
