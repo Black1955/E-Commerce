@@ -11,22 +11,28 @@ public class Order {
     private LocalDateTime orderDate;
     private Status status;
     private Adress adress;
+    private Price price;
 
-    public Order(OrderId id,UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress) {
+    public Order(OrderId id,UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress, Price price) {
         this.id = id;
         this.userId = userId;
         this.items = items;
         this.orderDate = orderDate;
         this.status = status;
+        this.price = price;
     }
-    public static Order createWithoutId(UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress) {
-        return new Order(null, userId, items, orderDate, status,adress);
+    public static Order createWithoutId(UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress, Price price) {
+        return new Order(null, userId, items, orderDate, status,adress,price);
     }
     public void setId(OrderId id) {
         if (this.id != null) {
             throw new IllegalStateException("ID is already set");
         }
         this.id = id;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 
     public void setPending() {
@@ -36,6 +42,13 @@ public class Order {
         this.status = Status.PENDING;
     }
 
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
+    }
     public void pay() {
         if (this.status != Status.PENDING) {
             throw new IllegalStateException("Order must be in PENDING status to be paid.");

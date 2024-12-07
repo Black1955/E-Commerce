@@ -1,10 +1,12 @@
 package com.ecommerce.ecommerce.Order.core.domain.Order;
 
+import com.ecommerce.ecommerce.Shared.Quantity;
+
 public class OrderItem {
     private ProductId id;
-    private int quantity;
+    private Quantity quantity;
 
-    public OrderItem(ProductId id, int quantity) {
+    public OrderItem(ProductId id, Quantity quantity) {
         this.id = id;
         this.quantity = quantity;
     }
@@ -13,7 +15,7 @@ public class OrderItem {
         return id;
     }
 
-    public int getQuantity() {
+    public Quantity getQuantity() {
         return quantity;
     }
 }
