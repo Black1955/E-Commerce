@@ -11,7 +11,7 @@ public class FindOrderById {
     public FindOrderById(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
-    Optional<Order> execute(OrderId id) {
+   public Optional<Order> execute(OrderId id) {
         return orderRepository.findById(id);
     }
 }

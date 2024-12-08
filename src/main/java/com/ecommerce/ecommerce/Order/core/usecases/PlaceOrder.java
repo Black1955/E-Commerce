@@ -12,11 +12,11 @@ public class PlaceOrder {
     public PlaceOrder(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
-    public void execute(Order order) {
+    public Order execute(Order order) {
         order.setPending();
         if (order.getId() == null) {
             order.setId(new OrderId(UUID.randomUUID().toString()));
         }
-        this.orderRepository.save(order);
+        return this.orderRepository.save(order);
     }
 }

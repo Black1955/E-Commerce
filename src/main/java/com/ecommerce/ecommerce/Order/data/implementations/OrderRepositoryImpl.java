@@ -23,8 +23,9 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public void save(Order order) {
-        orderRepository.save(OrderMapper.toEntity(order));
+    public Order save(Order order) {
+        var ord = orderRepository.save(OrderMapper.toEntity(order));
+        return OrderMapper.toDomain(ord);
     }
 
     @Override
