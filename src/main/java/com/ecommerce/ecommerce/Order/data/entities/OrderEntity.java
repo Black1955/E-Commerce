@@ -31,7 +31,7 @@ public class OrderEntity {
     @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
     private List<OrderItemEmbeddable> orderItems = new ArrayList<>();
 
-    protected OrderEntity() {}
+    public OrderEntity() {}
 
     public OrderEntity(String id, String userId, LocalDateTime orderDate, String status, AdressEmbeddable adress, List<OrderItemEmbeddable> orderItems, float price) {
         this.id = id;

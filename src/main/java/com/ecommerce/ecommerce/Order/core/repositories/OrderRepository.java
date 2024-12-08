@@ -3,7 +3,7 @@ package com.ecommerce.ecommerce.Order.core.repositories;
 import com.ecommerce.ecommerce.Order.core.domain.Order.Order;
 import com.ecommerce.ecommerce.Order.core.domain.Order.OrderId;
 import com.ecommerce.ecommerce.Order.core.domain.Order.UserId;
-import com.ecommerce.ecommerce.Shared.Page;
+import com.ecommerce.ecommerce.Shared.core.Page;
 import java.util.Optional;
 
 public interface OrderRepository {

@@ -7,7 +7,7 @@ import com.ecommerce.ecommerce.Order.core.repositories.OrderRepository;
 import com.ecommerce.ecommerce.Order.data.JpaRepositories.JpaOrderRepository;
 import com.ecommerce.ecommerce.Order.data.entities.OrderEntity;
 import com.ecommerce.ecommerce.Order.data.mappers.OrderMapper;
-import com.ecommerce.ecommerce.Shared.Page;
+import com.ecommerce.ecommerce.Shared.core.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 

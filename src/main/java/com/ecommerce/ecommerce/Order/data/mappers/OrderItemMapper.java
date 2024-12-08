@@ -1,11 +1,10 @@
 package com.ecommerce.ecommerce.Order.data.mappers;
 
 import com.ecommerce.ecommerce.Order.core.domain.Order.OrderItem;
-import com.ecommerce.ecommerce.Order.core.domain.Order.Price;
 import com.ecommerce.ecommerce.Order.core.domain.Order.ProductId;
 import com.ecommerce.ecommerce.Order.data.entities.OrderItemEmbeddable;
 import com.ecommerce.ecommerce.Order.data.entities.QuantityEmbeddable;
-import com.ecommerce.ecommerce.Shared.Quantity;
+import com.ecommerce.ecommerce.Shared.core.Quantity;
 
 public class OrderItemMapper {
     public static OrderItemEmbeddable toEmbeddable(OrderItem item) {

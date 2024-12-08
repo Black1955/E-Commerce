@@ -6,7 +6,7 @@ import jakarta.persistence.Embeddable;
 public class QuantityEmbeddable {
     private int quantity;
 
-    protected QuantityEmbeddable() {}
+    public QuantityEmbeddable() {}
 
     public QuantityEmbeddable(int quantity) {
         if (quantity <= 0) {

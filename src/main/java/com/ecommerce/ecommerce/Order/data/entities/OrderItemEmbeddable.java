@@ -11,7 +11,7 @@ public class OrderItemEmbeddable {
 
     private QuantityEmbeddable quantity;
 
-    protected OrderItemEmbeddable() {}
+    public OrderItemEmbeddable() {}
 
     public OrderItemEmbeddable(String productId, QuantityEmbeddable quantity) {
         this.productId = productId;

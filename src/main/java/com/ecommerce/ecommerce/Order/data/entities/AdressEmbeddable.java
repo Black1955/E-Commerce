@@ -9,7 +9,7 @@ public class AdressEmbeddable {
     private String ZIP;
     private String street;
 
-    protected AdressEmbeddable() {}
+    public AdressEmbeddable() {}
 
     public AdressEmbeddable(String country, String city, String ZIP, String street) {
         this.city = city;

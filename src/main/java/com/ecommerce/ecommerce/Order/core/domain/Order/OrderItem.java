@@ -1,6 +1,6 @@
 package com.ecommerce.ecommerce.Order.core.domain.Order;
 
-import com.ecommerce.ecommerce.Shared.Quantity;
+import com.ecommerce.ecommerce.Shared.core.Quantity;
 
 public class OrderItem {
     private ProductId id;

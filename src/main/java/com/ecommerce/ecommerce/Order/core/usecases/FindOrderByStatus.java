@@ -3,7 +3,7 @@ package com.ecommerce.ecommerce.Order.core.usecases;
 import com.ecommerce.ecommerce.Order.core.domain.Order.Order;
 import com.ecommerce.ecommerce.Order.core.domain.Order.UserId;
 import com.ecommerce.ecommerce.Order.core.repositories.OrderRepository;
-import com.ecommerce.ecommerce.Shared.Page;
+import com.ecommerce.ecommerce.Shared.core.Page;
 
 /**
  * The FindOrderByStatus class provides methods to retrieve orders based on their status,
