@@ -12,9 +12,9 @@ public class OrderItemDTO {
     @Positive
     @NotNull(message = "quantity cannot be empty")
     @Size(min = 1)
-    private float quantity;
+    private int quantity;
 
-    public OrderItemDTO(String id, float quantity) {
+    public OrderItemDTO(String id, int quantity) {
         this.id = id;
         this.quantity = quantity;
     }
@@ -23,15 +23,16 @@ public class OrderItemDTO {
         return id;
     }
 
-    public float getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(float quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
     public void setId(String id) {
         this.id = id;
     }
+
 }

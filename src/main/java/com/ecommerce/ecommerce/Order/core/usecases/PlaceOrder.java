@@ -12,7 +12,7 @@ public class PlaceOrder {
     public PlaceOrder(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
-    void execute(Order order) {
+    public void execute(Order order) {
         order.setPending();
         if (order.getId() == null) {
             order.setId(new OrderId(UUID.randomUUID().toString()));

@@ -7,7 +7,7 @@ import com.ecommerce.ecommerce.Shared.core.transaction.TransactionManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration("inventoryUseCaseConfiguration")
 public class UseCaseConfiguration {
 
     @Bean

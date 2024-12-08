@@ -12,7 +12,7 @@ public class ProductMapper {
         entity.setId(product.getId().getValue());
         entity.setDescription(product.getDescription());
         PriceEmbeddable price = new PriceEmbeddable();
-        price.setValue(product.getPrice().getValue());
+        price.setPrice(product.getPrice().getValue());
         entity.setPrice(price);
         entity.setTitle(product.getTitle());
         entity.setCategories(
@@ -23,7 +23,7 @@ public class ProductMapper {
     public static Product toDomain(ProductEntity product) {
         return new Product(
                 new ProductId(product.getId()),
-                new Price(product.getPrice().getValue()),
+                new Price(product.getPrice().getPrice()),
                 product.getCategories().stream().map(CategoryMapper::toDomain).toList(),
                 product.getTitle(),
                 product.getDescription()

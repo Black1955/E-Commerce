@@ -1,12 +1,19 @@
 package com.ecommerce.ecommerce.Catalog.presenters.DTO;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 import java.util.List;
 
 
 public class ProductCreateDTO {
+    @NotBlank
     private String title;
     private String description;
+    @Positive
     private float price;
+    @NotNull
     private List<CategoryDTO> categories;
 
     public ProductCreateDTO(String title, String description, float price, List<CategoryDTO> categories) {

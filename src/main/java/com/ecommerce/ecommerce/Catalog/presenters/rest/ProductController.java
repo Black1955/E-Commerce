@@ -14,6 +14,7 @@ import com.ecommerce.ecommerce.Catalog.presenters.DTO.ProductDTO;
 import com.ecommerce.ecommerce.Catalog.presenters.mappers.CategoryMapper;
 import com.ecommerce.ecommerce.Catalog.presenters.mappers.ProductMapper;
 import com.ecommerce.ecommerce.Shared.core.Page;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -43,7 +44,8 @@ public class ProductController {
 
     //create product
     @PostMapping("/create")
-    public ResponseEntity<String> create(@RequestBody ProductCreateDTO productRequest) {
+    public ResponseEntity<String> create(@RequestBody @Valid ProductCreateDTO productRequest) {
+        System.out.println(productRequest);
         Product product = Product.createWithoutId(
                 new Price(productRequest.getPrice()),
                 CategoryMapper.mapToCategoryFromCategoryDTO(productRequest.getCategories()),

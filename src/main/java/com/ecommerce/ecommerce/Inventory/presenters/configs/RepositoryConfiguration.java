@@ -9,7 +9,7 @@ import com.ecommerce.ecommerce.Inventory.data.implementations.StockRepositoryImp
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration("inventoryRepositoryConfiguration")
 public class RepositoryConfiguration {
     @Bean
     public StockRepository stockRepository(JpaStockRepository stockRepository) {

@@ -8,6 +8,7 @@ import com.ecommerce.ecommerce.Catalog.core.usecases.GetCategories;
 import com.ecommerce.ecommerce.Catalog.presenters.DTO.CategoryCreateDTO;
 import com.ecommerce.ecommerce.Catalog.presenters.DTO.CategoryDTO;
 import com.ecommerce.ecommerce.Catalog.presenters.mappers.CategoryMapper;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class CategoryController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> create(@RequestBody CategoryCreateDTO categoryRequest) {
+    public ResponseEntity<String> create(@RequestBody @Valid CategoryCreateDTO categoryRequest) {
         Category category = Category.createWithoutId(new Name(categoryRequest.getName()));
         createCategoryUseCase.execute(category);
         return ResponseEntity.status(HttpStatus.CREATED).build();

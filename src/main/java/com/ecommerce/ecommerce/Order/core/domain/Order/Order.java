@@ -20,6 +20,7 @@ public class Order {
         this.orderDate = orderDate;
         this.status = status;
         this.price = price;
+        this.adress = adress;
     }
     public static Order createWithoutId(UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress, Price price) {
         return new Order(null, userId, items, orderDate, status,adress,price);
@@ -116,5 +117,19 @@ public class Order {
         PAID,
         CANCELLED,
         COMPLETED
+    }
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Order {")
+                .append("id=").append(id)
+                .append(", userId=").append(userId)
+                .append(", items=").append(items)
+                .append(", orderDate=").append(orderDate)
+                .append(", status=").append(status)
+                .append(", adress=").append(adress)
+                .append(", price=").append(price)
+                .append("}");
+        return builder.toString();
     }
 }

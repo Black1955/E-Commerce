@@ -8,7 +8,7 @@ import com.ecommerce.ecommerce.Order.core.usecases.PlaceOrder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration("orderUseCaseConfiguration")
 public class UseCaseConfiguration {
 
     @Bean

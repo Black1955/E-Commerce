@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
 
 
-@Configuration
+@Configuration("catalogUseCaseConfiguration")
 public class UseCaseConfiguration {
 
     @Bean

@@ -9,7 +9,7 @@ import com.ecommerce.ecommerce.Catalog.data.implementations.ProductRepositoryImp
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration("catalogRepositoryConfiguration")
 public class RepositoryConfiguration {
     @Bean
     public CategoryRepository categoryRepository(JpaCategoryRepository jpaCategoryRepository) {

@@ -4,13 +4,13 @@ import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class PriceEmbeddable {
-    private float value;
+    private float price;
 
-    public float getValue() {
-        return value;
+    public float getPrice() {
+        return price;
     }
 
-    public void setValue(float value) {
-        this.value = value;
+    public void setPrice(float value) {
+        this.price = value;
     }
 }

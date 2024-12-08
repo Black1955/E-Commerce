@@ -6,7 +6,7 @@ import com.ecommerce.ecommerce.Order.data.implementations.OrderRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration("orderRepositoryConfiguration")
 public class RepositoryConfiguration {
 
     @Bean

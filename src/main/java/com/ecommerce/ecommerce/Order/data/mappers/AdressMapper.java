@@ -6,19 +6,19 @@ import com.ecommerce.ecommerce.Order.data.entities.AdressEmbeddable;
 public class AdressMapper {
     public static AdressEmbeddable toEmbeddable(Adress adress) {
         return new AdressEmbeddable(
-                adress.getStreet(),
+                adress.getCountry(),
                 adress.getCity(),
                 adress.getZIP(),
-                adress.getCountry()
+                adress.getStreet()
         );
     }
 
     public static Adress toDomain(AdressEmbeddable embeddable) {
         return new Adress(
-                embeddable.getStreet(),
+                embeddable.getCountry(),
                 embeddable.getCity(),
                 embeddable.getZIP(),
-                embeddable.getCountry()
+                embeddable.getStreet()
         );
     }
 }
