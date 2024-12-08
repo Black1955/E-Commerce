@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerce.Shared;
+package com.ecommerce.ecommerce.Shared.domain;
 
 
 /**
