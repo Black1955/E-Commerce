@@ -1,28 +1,22 @@
 package com.ecommerce.ecommerce.Inventory.core.usecases;
 
-import com.ecommerce.ecommerce.Inventory.core.domain.ProductId;
-import com.ecommerce.ecommerce.Inventory.core.domain.Quantity;
 import com.ecommerce.ecommerce.Inventory.core.domain.Stock;
-import com.ecommerce.ecommerce.Inventory.core.domain.exceptions.InsufficientStockException;
 import com.ecommerce.ecommerce.Inventory.core.repositories.StockRepository;
 
 import java.util.Optional;
 
-public class AddInStock {
+public class AddNewStockItem {
     private final StockRepository stockRepository;
-    public AddInStock(StockRepository stockRepository) {
+    public AddNewStockItem(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
-    Stock execute(Stock stock) throws InsufficientStockException {
+    void execute(Stock stock) {
         if(stock == null) {
             throw new IllegalArgumentException("stock cannot be empty");
         }
-        Optional<Stock> check = this.stockRepository.getById(stock.getProductId());
-        if(check.isPresent()) {
-            Stock newStock = new Stock(stock.getProductId(),new Quantity(check.get().getQuantity().getValue() + stock.getQuantity().getValue()));
-            return this.stockRepository.addItems(newStock);
-        } else {
-            return this.stockRepository.addItems(stock);
+        if(stock.getQuantity().getValue() < 0) {
+            throw new IllegalArgumentException("quantity of item cannot be negative");
         }
+             this.stockRepository.SaveOrUpdateStockItem(stock);
     }
 }

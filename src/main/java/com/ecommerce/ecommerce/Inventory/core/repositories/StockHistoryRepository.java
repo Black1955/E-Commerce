@@ -3,13 +3,13 @@ package com.ecommerce.ecommerce.Inventory.core.repositories;
 import com.ecommerce.ecommerce.Inventory.core.domain.OrderId;
 import com.ecommerce.ecommerce.Inventory.core.domain.StockHistory.StockHistory;
 import com.ecommerce.ecommerce.Inventory.core.domain.StockHistory.StockHistoryId;
-import com.ecommerce.ecommerce.Shared.Page;
+import com.ecommerce.ecommerce.Shared.core.Page;
 
 import java.time.LocalDateTime;
 
 public interface StockHistoryRepository {
     void add(StockHistory stockHistory);
-    void subtract(StockHistory stockHistory);
+    void delete(OrderId orderId);
     StockHistory getById(StockHistoryId id);
     Page<StockHistory> getAll(int size, int page);
     Page<StockHistory> getByReason(StockHistory.ReasonType reason,int size, int page);
