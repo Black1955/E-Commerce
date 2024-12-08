@@ -13,7 +13,7 @@ import com.ecommerce.ecommerce.Catalog.presenters.DTO.ProductCreateDTO;
 import com.ecommerce.ecommerce.Catalog.presenters.DTO.ProductDTO;
 import com.ecommerce.ecommerce.Catalog.presenters.mappers.CategoryMapper;
 import com.ecommerce.ecommerce.Catalog.presenters.mappers.ProductMapper;
-import com.ecommerce.ecommerce.Shared.Page;
+import com.ecommerce.ecommerce.Shared.core.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

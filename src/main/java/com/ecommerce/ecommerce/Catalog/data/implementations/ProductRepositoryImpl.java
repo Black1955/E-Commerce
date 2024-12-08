@@ -7,7 +7,7 @@ import com.ecommerce.ecommerce.Catalog.core.repositories.ProductRepository;
 import com.ecommerce.ecommerce.Catalog.data.JpaRepositories.JpaProductRepository;
 import com.ecommerce.ecommerce.Catalog.data.entities.ProductEntity;
 import com.ecommerce.ecommerce.Catalog.data.mappers.ProductMapper;
-import com.ecommerce.ecommerce.Shared.Page;
+import com.ecommerce.ecommerce.Shared.core.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
