@@ -10,7 +10,7 @@ public class IsInStock {
     public IsInStock(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
-    void execute(ProductId id) {
+    public void execute(ProductId id) {
         if(id == null) {
             throw new IllegalArgumentException("id cannot be empty");
         }

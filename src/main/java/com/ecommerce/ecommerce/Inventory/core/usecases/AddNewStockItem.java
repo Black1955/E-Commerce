@@ -10,7 +10,7 @@ public class AddNewStockItem {
     public AddNewStockItem(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
-    void execute(Stock stock) {
+    public void execute(Stock stock) {
         if(stock == null) {
             throw new IllegalArgumentException("stock cannot be empty");
         }

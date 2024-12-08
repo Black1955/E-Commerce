@@ -9,7 +9,7 @@ public class ReduceInStock {
     public ReduceInStock(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
-    Stock execute(Stock stock) {
+    public Stock execute(Stock stock) {
         if(stock == null) {
             throw new IllegalArgumentException("stock cannot be empty");
         }
