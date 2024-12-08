@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerce.Shared.domain;
+package com.ecommerce.ecommerce.Shared.core;
 
 import java.util.List;
 import java.util.ArrayList;

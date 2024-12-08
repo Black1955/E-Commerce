@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerce.Shared.domain;
+package com.ecommerce.ecommerce.Shared.core;
 
 public class Quantity {
     private final int value;
