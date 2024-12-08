@@ -19,6 +19,6 @@ public class ReduceInStock {
         return this.stockRepository.ReduceItems(stock);
     }
     private boolean isEnough(Stock stock) {
-        return this.stockRepository.checkQuantity(stock.getProductId()).map(stock1 -> stock1.getQuantity().getValue() > stock.getQuantity().getValue()).orElse(false);
+        return this.stockRepository.checkQuantity(stock.getProductId()).map(stock1 -> stock1.getQuantity().getValue() >= stock.getQuantity().getValue()).orElse(false);
     }
 }

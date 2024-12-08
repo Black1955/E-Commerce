@@ -1,12 +1,10 @@
 package com.ecommerce.ecommerce.Inventory.presenters.rest;
 
 import com.ecommerce.ecommerce.Inventory.core.domain.ProductId;
-import com.ecommerce.ecommerce.Inventory.core.domain.exceptions.InsufficientStockException;
-import com.ecommerce.ecommerce.Inventory.core.domain.exceptions.StockNotFoundException;
 import com.ecommerce.ecommerce.Inventory.core.usecases.AddNewStockItem;
 import com.ecommerce.ecommerce.Inventory.core.usecases.IsInStock;
 import com.ecommerce.ecommerce.Inventory.core.usecases.ReduceInStock;
-import com.ecommerce.ecommerce.Inventory.presenters.DTO.ErrorResponseDTO;
+import com.ecommerce.ecommerce.Inventory.core.usecases.StockService;
 import com.ecommerce.ecommerce.Inventory.presenters.DTO.StockDTO;
 import com.ecommerce.ecommerce.Inventory.presenters.mappers.StockMapper;
 
@@ -23,11 +21,13 @@ public class StockController {
     private final AddNewStockItem addNewStockItem;
     private final ReduceInStock reduceInStock;
     private final IsInStock isInStock;
+    private final StockService stockService;
 
-    public StockController(AddNewStockItem addNewStockItem, ReduceInStock reduceInStock, IsInStock isInStock) {
+    public StockController(AddNewStockItem addNewStockItem, ReduceInStock reduceInStock, IsInStock isInStock, StockService stockService) {
         this.reduceInStock = reduceInStock;
         this.addNewStockItem = addNewStockItem;
         this.isInStock = isInStock;
+        this.stockService = stockService;
     }
     // for admin
     @PostMapping("/add")
@@ -35,11 +35,13 @@ public class StockController {
         addNewStockItem.execute(StockMapper.toDomain(stock));
        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    @PostMapping("/sub")
-    public ResponseEntity<String> subInStock(@RequestBody @Valid StockDTO stock) {
-        reduceInStock.execute(StockMapper.toDomain(stock));
-        return ResponseEntity.ok("Stock updated successfully");
-    }
+    // for tests
+    //    @PostMapping("/sub")
+    //    public ResponseEntity<String> subInStock(@RequestBody @Valid StockDTO stock) {
+    //        stockService.addStockWithHistory(StockMapper.toDomain(stock), new OrderId("qeqwe"));
+    //        return ResponseEntity.ok("Stock updated successfully");
+    //    }
+
     @GetMapping("/get/{productId}")
     public ResponseEntity<StockDTO> getById(@PathVariable String productId) {
         var check = isInStock.execute(new ProductId(productId));

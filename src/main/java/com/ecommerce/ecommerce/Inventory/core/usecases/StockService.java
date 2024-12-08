@@ -10,7 +10,7 @@ import com.ecommerce.ecommerce.Inventory.core.repositories.StockHistoryRepositor
 import com.ecommerce.ecommerce.Inventory.core.repositories.StockRepository;
 import com.ecommerce.ecommerce.Shared.core.transaction.TransactionManager;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 public class StockService {
@@ -41,7 +41,7 @@ public class StockService {
             stockRepository.ReduceItems(item);
             stockHistoryRepository.add(stockHistory);
     }
-    public void addOrderStocksWithHistory(Collection<Stock> items, OrderId orderId) {
+    public void addOrderStocksWithHistory(List<Stock> items, OrderId orderId) {
          transactionManager.executeInTransaction(()->{
             for (Stock item : items) {
                 addStockWithHistory(item,orderId);
@@ -51,6 +51,6 @@ public class StockService {
     }
 
     private boolean isEnough(Stock stock) {
-        return this.stockRepository.checkQuantity(stock.getProductId()).map(stock1 -> stock1.getQuantity().getValue() > stock.getQuantity().getValue()).orElse(false);
+        return this.stockRepository.checkQuantity(stock.getProductId()).map(stock1 -> stock1.getQuantity().getValue() >= stock.getQuantity().getValue()).orElse(false);
     }
 }
