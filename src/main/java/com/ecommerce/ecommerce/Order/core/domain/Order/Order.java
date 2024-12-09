@@ -22,8 +22,8 @@ public class Order {
         this.price = price;
         this.adress = adress;
     }
-    public static Order createWithoutId(UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress, Price price) {
-        return new Order(null, userId, items, orderDate, status,adress,price);
+    public static Order createWithoutId(UserId userId, List<OrderItem> items, LocalDateTime orderDate, Adress adress, Price price) {
+        return new Order(null, userId, items, orderDate, Status.PENDING,adress,price);
     }
     public void setId(OrderId id) {
         if (this.id != null) {

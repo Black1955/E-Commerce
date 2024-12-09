@@ -14,7 +14,6 @@ public class OrderMapper {
                 new UserId(order.getUserId()),
                 order.getOrderItems().stream().map(OrderMapper::toDomain).toList(),
                 LocalDateTime.now(),
-                Order.Status.PENDING,
                 OrderMapper.toDomain(order.getAdress()),
                 new Price(order.getPrice())
                 );
