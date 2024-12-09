@@ -5,6 +5,7 @@ import com.ecommerce.ecommerce.Inventory.core.domain.ProductId;
 import com.ecommerce.ecommerce.Inventory.core.domain.Quantity;
 import com.ecommerce.ecommerce.Inventory.core.domain.Stock;
 import com.ecommerce.ecommerce.Inventory.core.domain.events.FetchDataOrder;
+import com.ecommerce.ecommerce.Inventory.core.domain.events.StockCheckedAndReserved;
 import com.ecommerce.ecommerce.Inventory.core.usecases.StockService;
 import com.ecommerce.ecommerce.Order.core.domain.Order.events.OrderPlaced;
 import com.ecommerce.ecommerce.Order.core.domain.Order.events.OrderDataForInventoryFetched;
@@ -29,14 +30,14 @@ public class OrderHandler {
     @EventListener
     @Async
     public void OrderPlacedHandler(OrderPlaced event) {
-            System.out.println("event OrderPlaced received in Inventory");
+            System.out.println("event OrderPlaced received in Inventory from Order");
             eventPublisher.publish(new FetchDataOrder(event.getOrderId()));
     }
 
     @EventListener
     @Async
     public void OrderDataFetched(OrderDataForInventoryFetched event) {
-        System.out.println("event OrderDataForInventoryFetched received in Inventory");
+        System.out.println("event OrderDataForInventoryFetched received in Inventory from Order");
             stockService.addOrderStocksWithHistory(event.orderItems.
                     stream().
                     map(orderItem ->
@@ -45,5 +46,6 @@ public class OrderHandler {
                                     ,new Quantity(orderItem.getQuantity().getValue())
                             )).toList()
                     ,new OrderId(event.orderId));
+            eventPublisher.publish(new StockCheckedAndReserved(new OrderId(event.getOrderId())));
     }
 }
