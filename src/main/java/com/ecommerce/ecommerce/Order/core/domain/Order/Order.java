@@ -12,8 +12,16 @@ public class Order {
     private Status status;
     private Adress adress;
     private Price price;
+    private PaymentDetails paymentDetails;
 
-    public Order(OrderId id,UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress, Price price) {
+    public enum Status {
+        PENDING,
+        PAID,
+        CANCELLED,
+        COMPLETED
+    }
+
+    public Order(OrderId id,UserId userId, List<OrderItem> items, LocalDateTime orderDate, Status status, Adress adress, Price price, PaymentDetails paymentDetails) {
         this.id = id;
         this.userId = userId;
         this.items = items;
@@ -21,9 +29,10 @@ public class Order {
         this.status = status;
         this.price = price;
         this.adress = adress;
+        this.paymentDetails = paymentDetails;
     }
-    public static Order createWithoutId(UserId userId, List<OrderItem> items, LocalDateTime orderDate, Adress adress, Price price) {
-        return new Order(null, userId, items, orderDate, Status.PENDING,adress,price);
+    public static Order createWithoutId(UserId userId, List<OrderItem> items, LocalDateTime orderDate, Adress adress, Price price, PaymentDetails paymentDetails) {
+        return new Order(null, userId, items, orderDate, Status.PENDING,adress,price, paymentDetails);
     }
     public void setId(OrderId id) {
         if (this.id != null) {
@@ -111,12 +120,12 @@ public class Order {
         this.status = status;
     }
 
+    public PaymentDetails getPaymentDetails() {
+        return paymentDetails;
+    }
 
-    public enum Status {
-        PENDING,
-        PAID,
-        CANCELLED,
-        COMPLETED
+    public void setPaymentDetails(PaymentDetails paymentDetails) {
+        this.paymentDetails = paymentDetails;
     }
     @Override
     public String toString() {

@@ -20,12 +20,15 @@ public class OrderCreateDTO {
     @Positive(message = "Price must be positive")
     private float price;
 
+    @NotNull
+    private PaymentDetailsDTO paymentDetails;
 
-    public OrderCreateDTO(String userId, AdressDTO adress, List<OrderItemDTO> orderItems, float price) {
+    public OrderCreateDTO(String userId, AdressDTO adress, List<OrderItemDTO> orderItems, float price, PaymentDetailsDTO paymentDetails) {
         this.userId = userId;
         this.adress = adress;
         this.orderItems = orderItems;
         this.price = price;
+        this.paymentDetails = paymentDetails;
     }
 
     public String getUserId() {
@@ -58,5 +61,13 @@ public class OrderCreateDTO {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public @NotNull PaymentDetailsDTO getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentDetails(@NotNull PaymentDetailsDTO paymentDetails) {
+        this.paymentDetails = paymentDetails;
     }
 }

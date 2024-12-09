@@ -32,7 +32,10 @@ public class OrderDTO {
     @NotNull(message = "Creation date cannot be null")
     private LocalDateTime createdAt;
 
-    public OrderDTO(String id, String userId, AdressDTO adress, List<OrderItemDTO> orderItems, float price, String status, LocalDateTime createdAt) {
+    @NotNull
+    private PaymentDetailsDTO paymentDetails;
+
+    public OrderDTO(String id, String userId, AdressDTO adress, List<OrderItemDTO> orderItems, float price, String status, LocalDateTime createdAt, PaymentDetailsDTO paymentDetails) {
         this.id = id;
         this.userId = userId;
         this.adress = adress;
@@ -40,6 +43,7 @@ public class OrderDTO {
         this.price = price;
         this.status = status;
         this.createdAt = createdAt;
+        this.paymentDetails = paymentDetails;
     }
 
     public String getId() {
@@ -96,5 +100,17 @@ public class OrderDTO {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = LocalDateTime.parse(createdAt, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+    }
+
+    public @NotNull PaymentDetailsDTO getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentDetails(@NotNull PaymentDetailsDTO paymentDetails) {
+        this.paymentDetails = paymentDetails;
+    }
+
+    public void setCreatedAt(@NotNull(message = "Creation date cannot be null") LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

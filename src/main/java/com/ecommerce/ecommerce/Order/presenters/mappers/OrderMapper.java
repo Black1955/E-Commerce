@@ -15,7 +15,8 @@ public class OrderMapper {
                 order.getOrderItems().stream().map(OrderMapper::toDomain).toList(),
                 LocalDateTime.now(),
                 OrderMapper.toDomain(order.getAdress()),
-                new Price(order.getPrice())
+                new Price(order.getPrice()),
+                new PaymentDetails(order.getPaymentDetails().getCardNumber(),order.getPaymentDetails().getCVV(), order.getPaymentDetails().getExpirationDate())
                 );
     }
     public static OrderItem toDomain(OrderItemDTO orderItem) {

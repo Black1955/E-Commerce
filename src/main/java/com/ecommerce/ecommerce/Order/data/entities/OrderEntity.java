@@ -31,9 +31,12 @@ public class OrderEntity {
     @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
     private List<OrderItemEmbeddable> orderItems = new ArrayList<>();
 
+    @Embedded
+    private PaymentDetailsEmbeddable paymentDetails;
+
     public OrderEntity() {}
 
-    public OrderEntity(String id, String userId, LocalDateTime orderDate, String status, AdressEmbeddable adress, List<OrderItemEmbeddable> orderItems, float price) {
+    public OrderEntity(String id, String userId, LocalDateTime orderDate, String status, AdressEmbeddable adress, List<OrderItemEmbeddable> orderItems, float price, PaymentDetailsEmbeddable paymentDetails) {
         this.id = id;
         this.userId = userId;
         this.orderDate = orderDate;
@@ -41,6 +44,7 @@ public class OrderEntity {
         this.adress = adress;
         this.status = status;
         this.price = price;
+        this.paymentDetails = paymentDetails;
     }
 
     public String getId() {
@@ -49,6 +53,14 @@ public class OrderEntity {
 
     public float getPrice() {
         return price;
+    }
+
+    public PaymentDetailsEmbeddable getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentDetails(PaymentDetailsEmbeddable paymentDetails) {
+        this.paymentDetails = paymentDetails;
     }
 
     public void setPrice(float price) {

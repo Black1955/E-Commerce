@@ -1,10 +1,8 @@
 package com.ecommerce.ecommerce.Order.data.mappers;
 
-import com.ecommerce.ecommerce.Order.core.domain.Order.Order;
-import com.ecommerce.ecommerce.Order.core.domain.Order.OrderId;
-import com.ecommerce.ecommerce.Order.core.domain.Order.Price;
-import com.ecommerce.ecommerce.Order.core.domain.Order.UserId;
+import com.ecommerce.ecommerce.Order.core.domain.Order.*;
 import com.ecommerce.ecommerce.Order.data.entities.OrderEntity;
+import com.ecommerce.ecommerce.Order.data.entities.PaymentDetailsEmbeddable;
 
 public class OrderMapper {
     public static OrderEntity toEntity(Order order) {
@@ -17,7 +15,8 @@ public class OrderMapper {
                 order.getItems().stream()
                         .map(OrderItemMapper::toEmbeddable)
                         .toList(),
-                order.getPrice().getValue()
+                order.getPrice().getValue(),
+                new PaymentDetailsEmbeddable(order.getPaymentDetails().getCardNumber(),order.getPaymentDetails().getCVV(),order.getPaymentDetails().getExpirationDate())
         );
     }
 
@@ -31,7 +30,8 @@ public class OrderMapper {
                 entity.getOrderDate(),
                 Order.Status.valueOf(entity.getStatus()),
                 AdressMapper.toDomain(entity.getAdress()),
-                new Price(entity.getPrice())
+                new Price(entity.getPrice()),
+                new PaymentDetails(entity.getPaymentDetails().getCardNumber(),entity.getPaymentDetails().getCVV(),entity.getPaymentDetails().getExpirationDate())
         );
     }
 }
