@@ -25,7 +25,7 @@ public class PaymentHandler {
 
     @EventListener
     @Async
-    void FetchDataPaymentHandler(FetchDataPayment event) {
+    public void FetchDataPaymentHandler(FetchDataPayment event) {
         System.out.println("Event FetchDataPayment received in Order from Payment");
 
         Optional<Order> order = findOrderById.execute(new OrderId(event.getOrderId()));
