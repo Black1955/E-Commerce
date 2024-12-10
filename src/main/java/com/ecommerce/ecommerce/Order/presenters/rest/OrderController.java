@@ -34,7 +34,7 @@ public class OrderController {
     public ResponseEntity<String> create(@RequestBody @Valid OrderCreateDTO order) {
             Order savedOrder = placeOrder.execute(OrderMapper.toDomain(order));
             eventPublisher.publish(new OrderPlaced(savedOrder.getId()));
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+            return ResponseEntity.status(HttpStatus.CREATED).body("Order saved");
     }
     //get by id
     //get by status
