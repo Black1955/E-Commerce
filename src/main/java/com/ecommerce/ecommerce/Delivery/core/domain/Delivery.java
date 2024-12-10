@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Delivery {
     private DeliveryId id;
     private final OrderId orderId;
-    private final DeliveryDetails deliveryDetails;
+    private final AddressDetails deliveryDetails;
     private DeliveryStatus status;
     private final LocalDateTime deliveryDate;
 
@@ -16,7 +16,7 @@ public class Delivery {
         CANCELLED,
     }
 
-    public Delivery(DeliveryId id, OrderId orderId, DeliveryDetails deliveryDetails, DeliveryStatus status, LocalDateTime deliveryDate) {
+    public Delivery(DeliveryId id, OrderId orderId, AddressDetails deliveryDetails, DeliveryStatus status, LocalDateTime deliveryDate) {
             this.deliveryDate = deliveryDate;
             this.id = id;
             this.orderId = orderId;
@@ -24,7 +24,7 @@ public class Delivery {
             this.deliveryDetails = deliveryDetails;
     }
 
-    public static Delivery createWithoutId(OrderId orderId, DeliveryDetails deliveryDetails, LocalDateTime deliveryDate) {
+    public static Delivery createWithoutId(OrderId orderId, AddressDetails deliveryDetails, LocalDateTime deliveryDate) {
         return new Delivery(null,orderId,deliveryDetails,DeliveryStatus.PENDING,deliveryDate);
     }
 
@@ -36,7 +36,7 @@ public class Delivery {
         return orderId;
     }
 
-    public DeliveryDetails getDeliveryDetails() {
+    public AddressDetails getDeliveryDetails() {
         return deliveryDetails;
     }
 

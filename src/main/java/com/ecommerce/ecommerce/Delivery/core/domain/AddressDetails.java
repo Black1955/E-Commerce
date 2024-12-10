@@ -1,12 +1,12 @@
 package com.ecommerce.ecommerce.Delivery.core.domain;
 
-public class DeliveryDetails {
+public class AddressDetails {
     private String country;
     private String city;
     private String ZIP;
     private String street;
 
-    public DeliveryDetails(String country, String city, String ZIP, String street) {
+    public AddressDetails(String country, String city, String ZIP, String street) {
         this.city = city;
         this.country = country;
         this.street = street;
