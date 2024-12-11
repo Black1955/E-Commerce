@@ -17,6 +17,7 @@ public class PaymentHandler {
 
     @EventListener
     public void PaymentCreatedHandler(PaymentCreated event) {
+        System.out.println("Event PaymentCreated is received in Delivery");
         eventPublisher.publish(new FetchDataDelivery(event.getOrderId()));
     }
 }

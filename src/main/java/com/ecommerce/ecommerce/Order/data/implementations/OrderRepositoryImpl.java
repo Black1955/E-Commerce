@@ -17,7 +17,7 @@ import java.util.Optional;
 public class OrderRepositoryImpl implements OrderRepository {
 
     private final JpaOrderRepository orderRepository;
-
+    // inject JpaRepository to simplify requests
     public OrderRepositoryImpl(JpaOrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }

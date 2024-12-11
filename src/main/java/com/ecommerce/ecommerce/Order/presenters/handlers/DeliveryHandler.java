@@ -24,6 +24,7 @@ public class DeliveryHandler {
 
     @EventListener
     public void FetchDataDeliveryHandler(FetchDataDelivery event) {
+        System.out.println("Event FetchDataDelivery is received in Order");
         Optional<Order> order = findOrderById.execute(new OrderId(event.getOrderId()));
         order.ifPresent(value -> eventPublisher.publish(new OrderDataForDeliveryFetched(value.getId(), value.getAdress())));
     }

@@ -18,6 +18,7 @@ public class OrderHandler {
 
     @EventListener
     public void OrderDataForDeliveryFetchedHandler(OrderDataForDeliveryFetched event) {
+        System.out.println("Event OrderDataForDeliveryFetched is received in Delivery");
         AddressDetails address = new AddressDetails(event.getAdress().getCountry(),event.getAdress().getCity(),event.getAdress().getZIP(),event.getAdress().getStreet());
         Delivery delivery = Delivery.createWithoutId(new OrderId(event.getOrderId()),address,null);
         createDelivery.execute(delivery);
